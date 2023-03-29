@@ -2,6 +2,11 @@
 
 Large knowledge graphs combine human knowledge garnered from projects ranging from academia and institutions to enterprises and crowdsourcing. Within such graphs, each relationship between two nodes represents a basic fact involving these two entities. The diversity of the semantics of relationships constitutes the richness of knowledge graphs, leading to the emergence of singular topologies, sometimes chaotic in appearance. However, this complex characteristic can be modeled in a simple way by introducing the concept of superficiality, which controls the overlap between relationships whose facts are generated independently. Superficiality also regulates the balance of the global distribution of knowledge by determining the proportion of misdescribed entities. This is the first model for the structure and dynamics of knowledge graphs. It leads to a better understanding of formal knowledge acquisition and organization.
 
+## Table of contents
+1. [Data](#markdown-header-data)
+    1. [Real-World KG distributions](#markdown-header-real-World-kg-distributions)
+2. [Source code](#markdown-header-source-code)
+
 ## Data
 
 ### Real-World KG distributions
@@ -20,10 +25,15 @@ We provide here the real-world distributions of the 3 KGs with comma-separated v
 
 ## Source code
 
-The entire source code (the computation of the statistics and the generation of the knowledge graphs) is implemented in Java in [`MultipleBipartiteGraphs`](MultipleBipartiteGraphs_20230329_repro/). It was running with JavaSE-1.7 (jre) under Eclipse IDE for Java Developers (includes Incubating components / Version: 2021-03 (4.19.0) / Build id: 20210312-0638).
+The entire source code (the computation of the statistics and the generation of the knowledge graphs) is implemented in Java in [`MultipleBipartiteGraphs`](MultipleBipartiteGraphs_20230329_repro/). It was running with JavaSE-1.7 (jre) under Eclipse IDE for Java Developers (includes Incubating components / Version: 2021-03 (4.19.0) / Build id: 20210312-0638) by using a Maven Project. 
 
 ### Configuration
 
+* Required libraries (see `pom.xml`):
+    * log4j 1.2.17
+    * Apache Commons Math3 3.6.1
+    * Apache Jeana 3.17.0
+    * API for SLF4J 2.0.0-alpha1
 * Configuration file: `properties/MBG.properties`:
     * `statistics_path`: path containing the statistics about relationships (kbs files)
     * `data_path`: path containing the data (original KG in RDF format)
