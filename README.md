@@ -6,18 +6,21 @@ Large knowledge graphs combine human knowledge garnered from projects ranging fr
 
 ### Real-World KG distributions
 
-* In-degree distributions: (BnF)[data/real/BnF_IN.csv], (ChEMBL)[data/real/ChEMBL_IN.csv], (Wikidata)[data/real/Wikidata_IN.csv]
-* Out-degree distributions: (BnF)[data/real/BnF_OUT.csv], (ChEMBL)[data/real/ChEMBL_OUT.csv], (Wikidata)[data/real/Wikidata_OUT.csv]
+Let us recall the preprocessing of the original dumps. We filtered each dump to remove literals and external entities because our model aims at understanding the internal topology of the entity belonging to a given knowledge graph. In the same way that the study of the topology of the Web considers only the pages and their links (i.e., the content of the pages like text and images is ignored). Of course, only the nodes of the knowledge graph corresponding to entities have been kept. Literal values such as dates, strings or images have therefore been removed. Besides, for the BnF and Wikidata knowledge graphs, many relationships link subjects to entities belonging to other external knowledge graphs. For focusing on one graph at a time, we only consider the entities whose Uniform Resource Identifier (URI) is prefixed by `http://data.bnf.fr` or `http://www.wikidata.org/` for the BnF or Wikidata knowledge graph respectively.
+
+We provide here the real-world distributions of the 3 KGs with comma-separated values (CSV) files (the first column for the degree and the second column for the count):
+* In-degree distributions: [BnF](data/real/BnF_IN.csv), [ChEMBL](data/real/ChEMBL_IN.csv), [Wikidata](data/real/Wikidata_IN.csv)
+* Out-degree distributions: [BnF](data/real/BnF_OUT.csv), [ChEMBL](data/real/ChEMBL_OUT.csv), [Wikidata](data/real/Wikidata_OUT.csv)
 
 ### Generated KG distributions
 
-* Example of *muliplex* and *parametrized* exponent  KG (our proposal):
+* Result of *muliplex* and *parametrized* exponent  KG (our proposal):
     * In-degree distributions:
     * Out-degree distributions:
 
 ## Source code
 
-The entire source code (the computation of the statistics and the generation of the knowledge graphs) is implemented in Java in (`MultipleBipartiteGraphs`)[MultipleBipartiteGraphs_20230329_repro/]. It was running with JavaSE-1.7 (jre) under Eclipse IDE for Java Developers (includes Incubating components / Version: 2021-03 (4.19.0) / Build id: 20210312-0638).
+The entire source code (the computation of the statistics and the generation of the knowledge graphs) is implemented in Java in [`MultipleBipartiteGraphs`](MultipleBipartiteGraphs_20230329_repro/). It was running with JavaSE-1.7 (jre) under Eclipse IDE for Java Developers (includes Incubating components / Version: 2021-03 (4.19.0) / Build id: 20210312-0638).
 
 ### Configuration
 
