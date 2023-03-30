@@ -54,7 +54,7 @@ The entire source code (the computation of the statistics and the generation of 
     * `EXPONENT_PARAMETRIZING`: control whether the exponent parametrization (if `false` the exponent of all relationships is 1)
     * `SAMPLE`: enable to do oversampling and undersampling for changing the KG size
 
-### Generate a KG distribution
+### Generate a synthetic KG from a real-world KG
 
 To generate a knowledge graph, the Java class `mbg.KBProfilerTest` must be executed:
 1. Choose the knowledge graph by uncommenting the appropriate line
@@ -66,7 +66,7 @@ Remarks:
 * The parameters of the Java MBG class are taken into account.
 * To reproduce Figure 2, it is necessary to make 6 executions by combining the 3 KGs (BnF, CheMBL, Wikidata) an the two connectivities (in-degree, out-degree).
 
-### Simulate a KG distribution
+### Simulate a synthtic KG
 
 To simulate a simplified knowledge graph, it is possible to use two Java classes:
 `mbg.SynthesisMonoPropertyTest` : It allows to fix all the parameters for generating a synthetic relationship (exponent `ALPHA`, number of facts `COUNT`, attachment probability `BETA`)
@@ -76,7 +76,7 @@ Remarks:
 * The parameters of the Java MBG class are taken into account.
 * To reproduce Figure 3, it is necessary to make 3 executions: 1. `SynthesisMonoPropertyTest` for plotting the mono-relationship,  `SynthesisMultiPropertyTest` for plotting the 25 relationships with `SUPERFICIALITY=0.05` (facts and number of distinct relationships), and `SynthesisMultiPropertyTest` for plotting the 25 relationships with `SUPERFICIALITY=0.95` (facts and number of distinct relationships).
 
-### Evaluate the parametrization of exponent
+### Evaluate the parametrization method of the exponent
 
 The parametrization method of the exponent is described in the supplementary materials. To evaluate the quality of our parameterization method, we generated synthetic relationships as ground truth by varying the parameters `ALPHA` and `BETA` between 0 and 1. We then applied our parameterization method for setting `ALPHA` and we compared the distribution from the found parameter with that of the ground truth by means of the Kullback-Leibler divergence. For reproducing this experimentation, it is necessary to execute the Java class `mbg.EstimatedGammaAnalysis`.
 
