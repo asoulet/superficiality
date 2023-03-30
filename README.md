@@ -3,12 +3,7 @@
 Large knowledge graphs combine human knowledge garnered from projects ranging from academia and institutions to enterprises and crowdsourcing. Within such graphs, each relationship between two nodes represents a basic fact involving these two entities. The diversity of the semantics of relationships constitutes the richness of knowledge graphs, leading to the emergence of singular topologies, sometimes chaotic in appearance. However, this complex characteristic can be modeled in a simple way by introducing the concept of superficiality, which controls the overlap between relationships whose facts are generated independently. Superficiality also regulates the balance of the global distribution of knowledge by determining the proportion of misdescribed entities. This is the first model for the structure and dynamics of knowledge graphs. It leads to a better understanding of formal knowledge acquisition and organization.
 
 ## Table of contents
-
 [[_TOC_]]
-
-1. [Data](#markdown-header-data)
-    1. [Real-World KG distributions](#markdown-header-real-World-kg-distributions)
-2. [Source code](#markdown-header-source-code)
 
 ## Data
 
@@ -23,8 +18,17 @@ We provide here the real-world distributions of the 3 KGs with comma-separated v
 ### Generated KG distributions
 
 * Result of *muliplex* and *parametrized* exponent  KG (our proposal):
-    * In-degree distributions:
-    * Out-degree distributions:
+    * In-degree distributions: [BnF](data/gen/multi_param/BnF_IN.csv), [ChEMBL](data/gen/multi_param/ChEMBL_IN.csv), [Wikidata](data/gen/multi_param/Wikidata_IN.csv)
+    * Out-degree distributions: [BnF](data/gen/multi_param/BnF_OUT.csv), [ChEMBL](data/gen/multi_param/ChEMBL_OUT.csv), [Wikidata](data/gen/multi_param/Wikidata_OUT.csv)
+* Result of *muliplex* and *linear* exponent  KG:
+    * In-degree distributions: [BnF](data/gen/multi_linear/BnF_IN.csv), [ChEMBL](data/gen/multi_linear/ChEMBL_IN.csv), [Wikidata](data/gen/multi_linear/Wikidata_IN.csv)
+    * Out-degree distributions: [BnF](data/gen/multi_linear/BnF_OUT.csv), [ChEMBL](data/gen/multi_linear/ChEMBL_OUT.csv), [Wikidata](data/gen/multi_linear/Wikidata_OUT.csv)
+* Result of *simplex* and *parametrized* exponent  KG (Bollobas model):
+    * In-degree distributions: [BnF](data/gen/simp_param/BnF_IN.csv), [ChEMBL](data/gen/simp_param/ChEMBL_IN.csv), [Wikidata](data/gen/simp_param/Wikidata_IN.csv)
+    * Out-degree distributions: [BnF](data/gen/simp_param/BnF_OUT.csv), [ChEMBL](data/gen/simp_param/ChEMBL_OUT.csv), [Wikidata](data/gen/simp_param/Wikidata_OUT.csv)
+* Result of *simplex* and *linear* exponent  KG (Barabasi-Albert model):
+    * In-degree distributions: [BnF](data/gen/simp_linear/BnF_IN.csv), [ChEMBL](data/gen/simp_linear/ChEMBL_IN.csv), [Wikidata](data/gen/simp_linear/Wikidata_IN.csv)
+    * Out-degree distributions: [BnF](data/gen/simp_linear/BnF_OUT.csv), [ChEMBL](data/gen/simp_linear/ChEMBL_OUT.csv), [Wikidata](data/gen/simp_linear/Wikidata_OUT.csv)
 
 ## Source code
 
