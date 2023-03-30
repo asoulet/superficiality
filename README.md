@@ -14,19 +14,22 @@ Let us recall the preprocessing of the original dumps. We filtered each dump to 
 We provide here the real-world distributions of the 3 KGs with comma-separated values (CSV) files (the first column for the degree and the second column for the count):
 * In-degree distributions: [BnF](data/real/BnF_IN.csv), [ChEMBL](data/real/ChEMBL_IN.csv), [Wikidata](data/real/Wikidata_IN.csv)
 * Out-degree distributions: [BnF](data/real/BnF_OUT.csv), [ChEMBL](data/real/ChEMBL_OUT.csv), [Wikidata](data/real/Wikidata_OUT.csv)
+These degree distributions are used as ground truth in Figure 2 (see magenta squares).
 
 ### Generated KG distributions
 
-* Result of *muliplex* and *parametrized* exponent  KG (our proposal):
+We provide an example of generated distributions for the 3 KGs with comma-separated values (CSV) files (the first column for the degree and the second column for the count). Our method is based on a multiplex generative model (denoted by *multiplex*) where each layer has a distinct preferential attachment mechanism parameterized between 0 and 1 (denoted by *parametrized*). We also reports an ablation study using only one layer (denoted by *simplex*) or forcing a linear preferential attachment (denoted by *linear*).
+
+* Results of *muliplex* and *parametrized* exponent  KG (our proposal / used in for green circles in Figure 2):
     * In-degree distributions: [BnF](data/gen/multi_param/BnF_IN.csv), [ChEMBL](data/gen/multi_param/ChEMBL_IN.csv), [Wikidata](data/gen/multi_param/Wikidata_IN.csv)
     * Out-degree distributions: [BnF](data/gen/multi_param/BnF_OUT.csv), [ChEMBL](data/gen/multi_param/ChEMBL_OUT.csv), [Wikidata](data/gen/multi_param/Wikidata_OUT.csv)
-* Result of *muliplex* and *linear* exponent  KG:
+* Results of *muliplex* and *linear* exponent  KG:
     * In-degree distributions: [BnF](data/gen/multi_linear/BnF_IN.csv), [ChEMBL](data/gen/multi_linear/ChEMBL_IN.csv), [Wikidata](data/gen/multi_linear/Wikidata_IN.csv)
     * Out-degree distributions: [BnF](data/gen/multi_linear/BnF_OUT.csv), [ChEMBL](data/gen/multi_linear/ChEMBL_OUT.csv), [Wikidata](data/gen/multi_linear/Wikidata_OUT.csv)
-* Result of *simplex* and *parametrized* exponent  KG (Bollobas model):
+* Results of *simplex* and *parametrized* exponent  KG (Bollobas model):
     * In-degree distributions: [BnF](data/gen/simp_param/BnF_IN.csv), [ChEMBL](data/gen/simp_param/ChEMBL_IN.csv), [Wikidata](data/gen/simp_param/Wikidata_IN.csv)
     * Out-degree distributions: [BnF](data/gen/simp_param/BnF_OUT.csv), [ChEMBL](data/gen/simp_param/ChEMBL_OUT.csv), [Wikidata](data/gen/simp_param/Wikidata_OUT.csv)
-* Result of *simplex* and *linear* exponent  KG (Barabasi-Albert model):
+* Results of *simplex* and *linear* exponent  KG (Barabasi-Albert model):
     * In-degree distributions: [BnF](data/gen/simp_linear/BnF_IN.csv), [ChEMBL](data/gen/simp_linear/ChEMBL_IN.csv), [Wikidata](data/gen/simp_linear/Wikidata_IN.csv)
     * Out-degree distributions: [BnF](data/gen/simp_linear/BnF_OUT.csv), [ChEMBL](data/gen/simp_linear/ChEMBL_OUT.csv), [Wikidata](data/gen/simp_linear/Wikidata_OUT.csv)
 
@@ -53,7 +56,7 @@ The entire source code (the computation of the statistics and the generation of 
 
 ### Generate a KG distribution
 
-To generate a knowledge graph, the Java class `KBProfilerTest` must be executed:
+To generate a knowledge graph, the Java class `mbg.KBProfilerTest` must be executed:
 1. Choose the knowledge graph by uncommenting the appropriate line
 2. Specify the distribution `StatisticsType.In` for in-degree distribution or `StatisticsType.OUT` for out-degree distribution
 3. Run the class
@@ -66,8 +69,8 @@ Remarks:
 ### Simulate a KG distribution
 
 To simulate a simplified knowledge graph, it is possible to use two Java classes:
-`SynthesisMonoPropertyTest` : It allows to fix all the parameters for generating a synthetic relationship (exponent `ALPHA`, number of facts `COUNT`, attachment probability `BETA`)
-`SynthesisMultiPropertyTest`: It allows to simulate `NUMBER` relationships having the same properties (exponent `ALPHA`, number of facts `COUNT`, attachment probability `BETA`) taking into account a given superficiality `SUPERFICIALITY`
+`mbg.SynthesisMonoPropertyTest` : It allows to fix all the parameters for generating a synthetic relationship (exponent `ALPHA`, number of facts `COUNT`, attachment probability `BETA`)
+`mbg.SynthesisMultiPropertyTest`: It allows to simulate `NUMBER` relationships having the same properties (exponent `ALPHA`, number of facts `COUNT`, attachment probability `BETA`) taking into account a given superficiality `SUPERFICIALITY`
 
 Remarks:
 * The parameters of the Java MBG class are taken into account.
@@ -75,7 +78,7 @@ Remarks:
 
 ### Evaluate the parametrization of exponent
 
-The parametrization method of the exponent is described in the supplementary materials. To evaluate the quality of our parameterization method, we generated synthetic relationships as ground truth by varying the parameters `ALPHA` and `BETA` between 0 and 1. We then applied our parameterization method for setting `ALPHA` and we compared the distribution from the found parameter with that of the ground truth by means of the Kullback-Leibler divergence. For reproducing this experimentation, it is necessary to execute the Java class `EstimatedGammaAnalysis`.
+The parametrization method of the exponent is described in the supplementary materials. To evaluate the quality of our parameterization method, we generated synthetic relationships as ground truth by varying the parameters `ALPHA` and `BETA` between 0 and 1. We then applied our parameterization method for setting `ALPHA` and we compared the distribution from the found parameter with that of the ground truth by means of the Kullback-Leibler divergence. For reproducing this experimentation, it is necessary to execute the Java class `mbg.EstimatedGammaAnalysis`.
 
 Remarks:
 * As the parameters of the Java MBG class are taken into account, it is important to disable the verbose mode by setting `VERBOSE=false`.
