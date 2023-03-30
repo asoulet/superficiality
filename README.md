@@ -14,13 +14,13 @@ Let us recall the preprocessing of the original dumps. We filtered each dump to 
 We provide here the real-world distributions of the 3 KGs with comma-separated values (CSV) files (the first column for the degree and the second column for the count):
 * In-degree distributions: [BnF](data/real/BnF_IN.csv), [ChEMBL](data/real/ChEMBL_IN.csv), [Wikidata](data/real/Wikidata_IN.csv)
 * Out-degree distributions: [BnF](data/real/BnF_OUT.csv), [ChEMBL](data/real/ChEMBL_OUT.csv), [Wikidata](data/real/Wikidata_OUT.csv)
-These degree distributions are used as ground truth in Figure 2 (see magenta squares).
+These degree distributions are used as ground truth in Figure 1 (see magenta squares).
 
 ### Generated KG distributions
 
 We provide an example of generated distributions for the 3 KGs with comma-separated values (CSV) files (the first column for the degree and the second column for the count). Our method is based on a multiplex generative model (denoted by *multiplex*) where each layer has a distinct preferential attachment mechanism parameterized between 0 and 1 (denoted by *parametrized*). We also reports an ablation study using only one layer (denoted by *simplex*) or forcing a linear preferential attachment (denoted by *linear*).
 
-* Results of *muliplex* and *parametrized* exponent  KG (our proposal / used in for green circles in Figure 2):
+* Results of *muliplex* and *parametrized* exponent  KG (our proposal / used in for green circles in Figure 1):
     * In-degree distributions: [BnF](data/gen/multi_param/BnF_IN.csv), [ChEMBL](data/gen/multi_param/ChEMBL_IN.csv), [Wikidata](data/gen/multi_param/Wikidata_IN.csv)
     * Out-degree distributions: [BnF](data/gen/multi_param/BnF_OUT.csv), [ChEMBL](data/gen/multi_param/ChEMBL_OUT.csv), [Wikidata](data/gen/multi_param/Wikidata_OUT.csv)
 * Results of *muliplex* and *linear* exponent  KG:
@@ -64,7 +64,7 @@ To generate a knowledge graph, the Java class `mbg.KBProfilerTest` must be execu
 Remarks:
 * The program seeks to take the appropriate statistics present in the path `statistics_path`. If the statistics do not exist, the program tries to build them from the KG in path `data_path`.
 * The parameters of the Java MBG class are taken into account.
-* To reproduce Figure 2, it is necessary to make 6 executions by combining the 3 KGs (BnF, CheMBL, Wikidata) an the two connectivities (in-degree, out-degree).
+* To reproduce Figure 1, it is necessary to make 6 executions by combining the 3 KGs (BnF, CheMBL, Wikidata) an the two connectivities (in-degree, out-degree).
 
 ### Simulate a synthtic KG
 
